@@ -24,7 +24,21 @@ const Footer = () => {
               </svg>
               View Location
             </a>
-            <div className="flex space-x-3">
+            <div className="mt-4 space-y-2 text-hotel-200">
+              <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:+94775497458" className="hover:text-white transition-colors">+94 77 5497 458</a>
+              </div>
+              <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:thepuvanthennavilla@hotmail.com" className="hover:text-white transition-colors">thepuvanthennavilla@hotmail.com</a>
+              </div>
+            </div>
+            <div className="flex space-x-3 mt-4">
               {Object.entries(hotelInfo.social).map(([platform, url]) => (
                 <a 
                   key={platform}
@@ -85,9 +99,9 @@ const Footer = () => {
               <ul className="space-y-2">
                 {[
                   { label: 'Contact Us', href: '#contact' },
-                  { label: 'Villa Stories', href: '#stories' },
-                  { label: 'House Rules', href: '#' },
-                  { label: 'Kids Policy', href: '#' },
+                  { label: 'Villa Stories', href: '/stories' },
+                  { label: 'House Rules', href: '#booking', onClick: (e: React.MouseEvent) => { e.preventDefault(); document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }); } },
+                  { label: 'Kids Policy', href: '#booking', onClick: (e: React.MouseEvent) => { e.preventDefault(); document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }); } },
                   { label: 'Menus', href: '#' },
                   { label: 'Terms & Conditions', href: '#' }
                 ].map((link) => (
@@ -110,6 +124,19 @@ const Footer = () => {
             <p className="text-hotel-400 text-sm">
               &copy; {currentYear} {hotelInfo.name}. All rights reserved.
             </p>
+            <a 
+              href="#booking"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="mt-4 md:mt-0 bg-hotel-500 hover:bg-hotel-600 text-white font-medium py-2 px-6 rounded-full transition-colors duration-200 flex items-center"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Book Now
+            </a>
           </div>
         </div>
       </div>
